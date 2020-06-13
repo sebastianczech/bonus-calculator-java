@@ -14,7 +14,7 @@ class BonusCalculator {
         if (sales <= quota) {
             return 0.0;
         } else {
-            return calculateBonusAfterTax(sales, quota, commissionPercentage, 0.0) / teamMembers;
+            return calculateProfit(sales, quota, commissionPercentage) / teamMembers;
         }
     }
 
