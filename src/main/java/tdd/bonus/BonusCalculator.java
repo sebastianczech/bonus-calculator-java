@@ -15,7 +15,7 @@ class BonusCalculator {
     }
 
     private Integer calculateBonusAfterTax(Integer sales, Integer quota, Integer commissionPercentage, Integer taxPercentage) {
-        Integer profit = profit(sales, quota, commissionPercentage);
+        Integer profit = calculateProfit(sales, quota, commissionPercentage);
         Integer tax = percentageOfValue(profit, taxPercentage);
         return  profit - tax;
     }
@@ -24,7 +24,7 @@ class BonusCalculator {
         return value * percentage / 100;
     }
 
-    private int profit(Integer sales, Integer quota, Integer commissionPercentage) {
+    private int calculateProfit(Integer sales, Integer quota, Integer commissionPercentage) {
         return percentageOfValue(salesAboveQuota(sales, quota), commissionPercentage);
     }
 
