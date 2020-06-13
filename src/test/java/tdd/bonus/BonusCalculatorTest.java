@@ -12,7 +12,7 @@ class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Double bonus = bonusCalculator.calculateIndividualBonus(13000, 15000, 0.1, 0.1);
+        Double bonus = bonusCalculator.calculateIndividualBonus(13000, 15000, 10, 10);
 
         // then
         assertThat(bonus).isEqualTo(0);
@@ -24,7 +24,7 @@ class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Double bonus = bonusCalculator.calculateIndividualBonus(15000, 15000, 0.1, 0.1);
+        Double bonus = bonusCalculator.calculateIndividualBonus(15000, 15000, 10, 10);
 
         // then
         assertThat(bonus).isEqualTo(0);
@@ -36,7 +36,7 @@ class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Double bonus = bonusCalculator.calculateIndividualBonus(12000, 11000, 0.1, 0.1);
+        Double bonus = bonusCalculator.calculateIndividualBonus(12000, 11000, 10, 10);
 
         // then
         assertThat(bonus).isGreaterThan(0);
@@ -49,7 +49,7 @@ class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Double bonus = bonusCalculator.calculateTeamBonus(13000, 15000, 0.1, 4);
+        Double bonus = bonusCalculator.calculateTeamBonus(13000, 15000, 10, 4);
 
         // then
         assertThat(bonus).isEqualTo(0);
@@ -61,7 +61,7 @@ class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Double bonus = bonusCalculator.calculateTeamBonus(12000, 12000, 0.1, 4);
+        Double bonus = bonusCalculator.calculateTeamBonus(12000, 12000, 10, 4);
 
         // then
         assertThat(bonus).isEqualTo(0);
@@ -73,7 +73,7 @@ class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Double bonus = bonusCalculator.calculateTeamBonus(12000, 11000, 0.1, 4);
+        Double bonus = bonusCalculator.calculateTeamBonus(12000, 11000, 10, 4);
 
         // then
         assertThat(bonus).isEqualTo(25);
@@ -85,7 +85,7 @@ class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Double bonus = bonusCalculator.calculateTeamBonus(12000, 11000, 0.5, 5);
+        Double bonus = bonusCalculator.calculateTeamBonus(12000, 11000, 50, 5);
 
         // then
         assertThat(bonus).isEqualTo(100);
