@@ -79,4 +79,16 @@ class BonusCalculatorTest {
         assertThat(bonus).isEqualTo(25);
     }
 
+    @Test
+    void should_calculate_team_50_percent_bonus_if_sales_is_above_quota() {
+        // given
+        BonusCalculator bonusCalculator = new BonusCalculator();
+
+        // when
+        Double bonus = bonusCalculator.calculateTeamBonus(12000, 11000, 0.5, 5);
+
+        // then
+        assertThat(bonus).isEqualTo(100);
+    }
+
 }
