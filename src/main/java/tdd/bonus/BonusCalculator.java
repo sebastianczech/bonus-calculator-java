@@ -2,20 +2,21 @@ package tdd.bonus;
 
 class BonusCalculator {
 
-    private static final Integer COMMISSION_PERCENTAGE = 10;
-    private static final Integer TAX_PERCENTAGE = 10;
-
-    public Integer calculateIndividualBonus(Integer sales, Integer quota) {
+    Integer calculateIndividualBonus(Integer sales, Integer quota, Integer commissionPercentage, Integer taxPercentage) {
         if (sales <= quota) {
             return 0;
         } else {
-            return calculateBonusAfterTax(sales, quota);
+            return calculateBonusAfterTax(sales, quota, commissionPercentage, taxPercentage);
         }
     }
 
-    private Integer calculateBonusAfterTax(Integer sales, Integer quota) {
-        Integer profit = profit(sales, quota);
-        Integer tax = percentageOfValue(profit, BonusCalculator.TAX_PERCENTAGE);
+    Integer calculateTeamBonus(Integer sales, Integer quota, Integer commissionPercentage, Integer teamMembers) {
+        return 0;
+    }
+
+    private Integer calculateBonusAfterTax(Integer sales, Integer quota, Integer commissionPercentage, Integer taxPercentage) {
+        Integer profit = profit(sales, quota, commissionPercentage);
+        Integer tax = percentageOfValue(profit, taxPercentage);
         return  profit - tax;
     }
 
@@ -23,8 +24,8 @@ class BonusCalculator {
         return value * percentage / 100;
     }
 
-    private int profit(Integer sales, Integer quota) {
-        return percentageOfValue(salesAboveQuota(sales, quota), BonusCalculator.COMMISSION_PERCENTAGE);
+    private int profit(Integer sales, Integer quota, Integer commissionPercentage) {
+        return percentageOfValue(salesAboveQuota(sales, quota), commissionPercentage);
     }
 
     private int salesAboveQuota(Integer sales, Integer quota) {
