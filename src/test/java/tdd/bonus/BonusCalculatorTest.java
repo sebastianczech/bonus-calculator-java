@@ -12,7 +12,19 @@ public class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Integer bonus = bonusCalculator.calculate(13000, 15000);
+        Integer bonus = bonusCalculator.calculateIndividualBonus(13000, 15000);
+
+        // then
+        assertThat(bonus).isEqualTo(0);
+    }
+
+    @Test
+    public void should_calculate_no_bonus_if_sales_is_equal_quota() {
+        // given
+        BonusCalculator bonusCalculator = new BonusCalculator();
+
+        // when
+        Integer bonus = bonusCalculator.calculateIndividualBonus(15000, 15000);
 
         // then
         assertThat(bonus).isEqualTo(0);
