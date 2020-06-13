@@ -12,7 +12,7 @@ class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Integer bonus = bonusCalculator.calculateIndividualBonus(13000, 15000, 10, 10);
+        Double bonus = bonusCalculator.calculateIndividualBonus(13000, 15000, 0.1, 0.1);
 
         // then
         assertThat(bonus).isEqualTo(0);
@@ -24,7 +24,7 @@ class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Integer bonus = bonusCalculator.calculateIndividualBonus(15000, 15000, 10, 10);
+        Double bonus = bonusCalculator.calculateIndividualBonus(15000, 15000, 0.1, 0.1);
 
         // then
         assertThat(bonus).isEqualTo(0);
@@ -36,7 +36,7 @@ class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Integer bonus = bonusCalculator.calculateIndividualBonus(12000, 11000, 10, 10);
+        Double bonus = bonusCalculator.calculateIndividualBonus(12000, 11000, 0.1, 0.1);
 
         // then
         assertThat(bonus).isGreaterThan(0);
@@ -49,7 +49,7 @@ class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Integer bonus = bonusCalculator.calculateTeamBonus(13000, 15000, 10, 4);
+        Double bonus = bonusCalculator.calculateTeamBonus(13000, 15000, 0.1, 4);
 
         // then
         assertThat(bonus).isEqualTo(0);
@@ -61,10 +61,22 @@ class BonusCalculatorTest {
         BonusCalculator bonusCalculator = new BonusCalculator();
 
         // when
-        Integer bonus = bonusCalculator.calculateTeamBonus(12000, 12000, 10, 4);
+        Double bonus = bonusCalculator.calculateTeamBonus(12000, 12000, 0.1, 4);
 
         // then
         assertThat(bonus).isEqualTo(0);
+    }
+
+    @Test
+    void should_calculate_team_10_percent_bonus_if_sales_is_above_quota() {
+        // given
+        BonusCalculator bonusCalculator = new BonusCalculator();
+
+        // when
+        Double bonus = bonusCalculator.calculateTeamBonus(12000, 11000, 0.1, 4);
+
+        // then
+        assertThat(bonus).isEqualTo(25);
     }
 
 }
